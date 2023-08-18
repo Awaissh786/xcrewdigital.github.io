@@ -1,0 +1,705 @@
+/* --------------------------------------------------Linking Google Fonts---------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap');
+
+/* --------------------------------------------------CSS Reset---------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+    scroll-padding-top: 2rem;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+
+
+/* -----------------------------------------------------Colors used in the website--------------------------------- */
+
+:root {
+    --heading-color: #0c0519;
+    --primary-shades: #00020b;
+    --paragraph-color: #687279;
+    --button-Normal-color: #7531F9;
+    --button-Hover-color: #6610F2;
+    --white-color: #fff;
+
+}
+
+img {
+    display: inline-block;
+    width: 100%;
+    cursor: pointer;
+}
+
+a {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--primary-color);
+    line-height: 1.7;
+    margin: 1.6rem 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--paragraph-color);
+    margin: 1.6rem 0;
+}
+
+h1 {
+    font-size: 4.5rem;
+    font-weight: 800;
+    /* text-shadow: 4px 5px 15px var(--heading-color); */
+}
+
+h2 {
+    font-size: 3.6rem;
+    font-weight: 800;
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.row {
+    margin-top: 10rem;
+}
+
+/* --------------------------------------------------------------------------------Custom Scroll Bars--------------------------------------- */
+
+html::-webkit-scrollbar {
+    width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+    background: var(--button-Normal-color);
+    border-radius: 5rem;
+
+}
+
+
+/* --------------------------------------------------------------------------------Header Section Starts Here--------------------------------------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 5.4rem;
+    height: 8rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 1px 10px var(--heading-color);
+    background: #fff;
+    z-index: 1000;
+    position: relative;
+}
+
+.header .logo {
+    width: 10rem;
+    height: 10rem;
+}
+
+.navbar-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3.4rem;
+}
+
+.logo {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: var(--button-Normal-color);
+}
+
+/* --------------------------------------------------------------------------------Navbar Links--------------------------------------- */
+
+.navbar-list .navbar-link {
+    color: var(--heading-color);
+    position: relative;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+}
+
+
+.navbar-list .navbar-link:hover,
+.navbar-list .navbar-link:active {
+    color: var(--button-Normal-color);
+
+}
+
+.navbar-list .navbar-link::after {
+    content: '';
+    background: var(--button-Normal-color);
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 4px;
+    transition: all 0.5s ease-in-out;
+
+}
+
+/* ------------------------------------------------Navbar Button----------------------------------------------------------- */
+.navbar-list .navbar-btn {
+    border: 2px solid var(--button-Normal-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--button-Normal-color);
+    padding: 1.2rem 2.4rem;
+    border-radius: 10rem;
+    transition: all 0.5s ease-in-out;
+}
+
+.navbar-list .navbar-btn:hover,
+.navbar-list .navbar-btn:active {
+    border: none;
+    background-color: var(--button-Normal-color);
+    color: var(--white-color);
+    transform: scale(1.05);
+}
+
+.navbar-list .navbar-link:hover::after,
+.navbar-list .navbar-link:active::after {
+    width: 100%;
+
+}
+
+/* ---------------------------------------------------------Mobile Header Section----------------------------- */
+
+.mobile-navbar-btn {
+    font-size: 3.4rem;
+    display: none;
+}
+
+.mobile-navbar-btn .mobile-navbar-icon[name="close"] {
+    display: none;
+}
+
+/* ---------------------------------------------------------header Responsive----------------------------- */
+@media only screen and (max-width: 1080px){
+    .navbar{
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #000;
+        color: var(--white-color);
+        transform: translateX(100%);
+        visibility: none;
+        pointer-events: none;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 12;
+        transition: all 0.5s ease-in-out;
+    }
+    .navbar-list{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .navbar-list-item .navbar-link{
+        color: var(--white-color);
+    }
+    .navbar-list-item .navbar-btn{
+        border: 2px solid var(--white-color);
+        color: var(--white-color);
+    }
+    .mobile-navbar-btn{
+        display: block;
+        cursor: pointer;
+        z-index: 99;
+    }
+
+    .showmenu .navbar{
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+        opacity: 1;
+    }
+    .showmenu .showmenu .mobile-navbar-btn{
+        color: var(--white-color);
+    }
+    .showmenu .mobile-navbar-btn .mobile-navbar-icon[name = "menu"]{
+        display: none;
+    }
+    .showmenu .mobile-navbar-btn .mobile-navbar-icon[name = "close"]{
+        display: block;
+        z-index: 907;
+    }
+    .navbar-link:hover,
+    .navbar-link:active {
+        display: none;
+    }
+
+    .navbar-list .navbar-link::after {
+        display: none;
+    }
+}
+/* --------------------------------------------------------Header-Section Completed Here--------------------------------------------- */
+
+/* --------------------------------------------------------------------Hero Section------------------------------------------------- */
+
+.section-hero {
+    width: 100%;
+    min-height: 40rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/images/bg.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 1rem 0;
+}
+
+.section-hero .hero-container {
+    display: grid;
+    gap: 4rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    max-width: 130rem;
+    margin: auto;
+    padding: 0 5rem;
+    /* text-align: center; */
+
+}
+
+.section-hero .hero-container .xcrew-link {
+    color: yellowgreen;
+}
+
+.hero-container h1 {
+    color: var(--white-color);
+    text-transform: uppercase;
+    font-size: 5rem;
+}
+
+.hero-container .xcrew-link {
+    color: var(--button-Normal-color);
+}
+
+.hero-container p {
+    color: var(--white-color);
+}
+
+.hero-container img {
+    width: 100%;
+    padding-top: 2rem;
+}
+
+
+/* ------------------------------------------Hero Section for mobile---------------------------------------------- */
+
+@media only screen and (max-width: 1080px) {
+    .section-hero .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding-top: 2rem;
+        gap: 1rem;
+    }
+
+    html {
+        font-size: 56.25%;
+    }
+
+    .hero-container img {
+        padding-top: 0;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .hero-container h1 {
+        font-size: 3.6rem;
+    }
+}
+
+/* ------------------------------------------Services Section---------------------------------------------- */
+
+.section {
+    margin-top: 5rem;
+
+}
+
+.section .container {
+    max-width: 114rem;
+    margin: auto;
+    padding: 0 2.5rem;
+}
+
+.section .h-secondary {
+    text-align: center;
+    position: relative;
+}
+
+.section .h-secondary::after {
+    content: '';
+    background: var(--button-Normal-color);
+    width: 12rem;
+    height: 4px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+}
+
+
+/* ------------------------------------------Services Section BOX---------------------------------------------- */
+
+.container .box-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+
+.container .box-container .image-box {
+    text-align: center;
+    padding: 2rem 2rem 0.5rem 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 1px -1px 10px var(--paragraph-color), 1px 1px 10px var(--paragraph-color);
+    /* cursor: pointer; */
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+/* ------------------------------------------Services Section BOX Hover Effect---------------------------------------------- */
+.container .box-container .image-box span {
+    background: var(--button-Normal-color);
+    width: 0;
+    height: 100%;
+    border-radius: 1.5rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: all 0.5s ease-in-out;
+}
+
+.container .box-container .image-box:hover {
+    color: #fff;
+    transform: translateY(-12px);
+}
+
+.container .box-container .image-box:hover p {
+    color: #fff;
+}
+
+.container .box-container .image-box:hover span {
+    width: 100%;
+}
+
+.box-container .image-box img {
+    width: 6rem;
+    /* height: 8rem; */
+}
+
+/* -------------------------------------------------Services Section Responsive ----------------------------------------- */
+
+@media only screen and (max-width: 780px) {
+    .container .box-container {
+        grid-template-columns: 1fr;
+
+    }
+}
+
+@media only screen and (min-width: 780px) and (max-width: 1150px) {
+    .container .box-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 
+-----------------------------------------------Why hire us section------------------ */
+.section-why-hire-us {
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url(/images/secton-why-bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 5rem 0;
+    color: var(--white-color);
+}
+
+.why-hire-us-container {
+    margin-bottom: 10rem;
+    text-align: center;
+}
+
+#why-hire {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8rem;
+    max-width: 160rem;
+    margin: auto;
+    padding: 0 5rem;
+}
+
+.content-container {
+    display: flex;
+    align-items: center;
+}
+
+.left-box {
+    margin-bottom: 4rem;
+    /* padding: 2rem; */
+}
+
+.content-container ion-icon {
+    font-size: 5rem;
+    cursor: pointer;
+}
+
+.content-container span {
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 2rem;
+}
+
+.why-hire-us-left p,
+.right-side-box p {
+    color: var(--white-color);
+}
+
+/* --------------------Right Side----------------------------- */
+
+.why-hire-us-right {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    cursor: pointer;
+}
+
+
+.why-hire-us-right .right-side-box {
+    border: 2px solid var(--white-color);
+    text-align: center;
+}
+
+/* ------------------------------------------Responsive Check ------------------------------------ */
+
+@media only screen and (max-width: 980px) {
+    #why-hire {
+        grid-template-columns: 1fr;
+    }
+
+    .why-hire-us-right {
+        grid-template-columns: 1fr;
+    }
+
+    .content-container span {
+        font-size: 1.8rem;
+    }
+}
+
+/* -----------------------------------------------Contact Section-------------------------------------------------------- */
+.section-contact {
+    background: var(--heading-color);
+    padding: 5rem 0;
+}
+
+.section-contact .h-secondary {
+    color: var(--white-color);
+    margin-top: 5rem;
+
+}
+
+.form-container form {
+
+    padding: 1.2rem 2rem;
+    /* text-align: center; */
+    margin-top: 5rem;
+    text-align: center;
+}
+
+
+.form-container label {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--white-color);
+}
+
+.form-container form .input-group {
+    margin: 3rem 0;
+}
+
+.form-container form .input-group span {
+    margin-bottom: 1.6rem;
+    text-align: right;
+}
+
+.form-container form .input-group .input input,
+textarea {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.4rem;
+    border: none;
+    outline: none;
+    color: var(--paragraph-color);
+}
+
+.form-container form .input-group .input input[type="submit"] {
+    background-color: var(--button-Normal-color);
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--white-color);
+    display: inline-block;
+    width: 20%;
+    margin: 3rem 0;
+    padding: 1.2rem 2rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+.form-container form .input-group input[type="submit"]:hover {
+    background-color: var(--button-Hover-color);
+}
+
+.send {
+    color: var(--white-color);
+    font-size: 1.6rem;
+}
+
+/* -------------------------------------Responsive Contact Form-------------------------- */
+@media only screen and (max-width: 580px) {
+    .form-container form .input-group .input input[type="submit"] {
+        width: 50%;
+    }
+}
+
+/* -------------------------------------------------Our Work Section---------------------------------- */
+
+.portfolio-img-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+
+}
+
+.portfolio-img-box img {
+    filter: grayscale(100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.portfolio-img-box img:hover,
+.portfolio-img-box img:active {
+    filter: grayscale(0);
+    transform: scale(1.2);
+}
+
+/* -------------------------------------------------Our Work Section Responsive---------------------------------- */
+
+@media only screen and (max-width: 980px) {
+    .portfolio-img-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* -----------------------------------------Footer Section-------------------------------------- */
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15rem;
+    /* text-align: center; */
+    padding: 0 4rem;
+    background: #F4F5F6;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+
+}
+
+
+.footer-left-side .logo img {
+    width: 10rem;
+    height: 10rem;
+    text-align: center;
+}
+
+.footer-right-side h3 p {
+    text-align: left;
+}
+
+.copyright {
+    text-align: center;
+}
+
+.footer-navlist {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-navlinks {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--heading-color);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+}
+
+.footer-navlinks:hover,
+footer.navlinks:active {
+    color: var(--button-Hover-color);
+}
+
+.footer-navlinks::after {
+    content: '';
+    background: var(--button-Normal-color);
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 4px;
+    transition: all 0.5s ease-in-out;
+}
+
+.footer-navlinks:hover::after {
+    width: 100%;
+}
+
+/* -----------------------------------------Footer Responsive Check---------------------------- */
+
+@media only screen and (max-width: 1080px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 4rem;
+    }
+}
